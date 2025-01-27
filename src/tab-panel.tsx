@@ -22,6 +22,11 @@ export default function TabPanel(props: Props) {
                             onClick={() => {
                                 setActiveTab(tabindex);
                             }}
+                            className={`${
+                                activeTab === tabindex
+                                    ? "text-lg cursor-pointer border-b-2 border-black"
+                                    : "text-lg cursor-pointer text-gray-500"
+                            } `}
                         >
                             {tab.title}
                         </button>
