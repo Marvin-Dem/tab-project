@@ -24,9 +24,9 @@ export default function TabPanel(props: Props) {
                             }}
                             className={`${
                                 activeTab === tabindex
-                                    ? "text-lg cursor-pointer border-b-2 border-black"
-                                    : "text-lg cursor-pointer text-gray-500"
-                            } `}
+                                    ? "border-b-2 border-black"
+                                    : "text-gray-500"
+                            } text-lg cursor-pointer`}
                         >
                             {tab.title}
                         </button>
