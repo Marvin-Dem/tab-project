@@ -1,35 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Tab } from "./tab-panel";
+import TabPanel from "./tab-panel";
 
-function App() {
-  const [count, setCount] = useState(0)
+const numberArray = [1, 2, 3, 4];
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+const tabcontent: Tab[] = [
+    {
+        title: "First Tab",
+        content: (
+            <div className="flex flex-col gap-2 items-center">
+                <p className="text-lg">Header of Test Content 1</p>
+                <div className="text-white bg-black text-lg p-4 rounded-lg">
+                    Boxed main content of Test Content 1
+                </div>
+                <p className="text-lg">Bottom text of Test Content 1</p>
+            </div>
+        ),
+    },
+    {
+        title: "Second Tab",
+        content: (
+            <div className="grid grid-cols-2 gap-2">
+                {numberArray.map((number) => {
+                    return (
+                        <div className="border border-black rounded-full flex justify-center">
+                            {number}
+                        </div>
+                    );
+                })}
+            </div>
+        ),
+    },
+    {
+        title: "Third Tab",
+        content: (
+            <div className="flex justify-center">
+                <img
+                    src="/bisasam.png"
+                    alt="Picture of Bulbasaur"
+                    width={475}
+                    height={475}
+                ></img>
+            </div>
+        ),
+    },
+    {
+        title: "Fourth Tab",
+        content: (
+            <div className="grid grid-cols-2 gap-2">
+                <button className="text-white bg-black text-lg p-4 rounded-lg cursor-pointer hover:bg-gray-800">
+                    Click the first test button
+                </button>
+                <button className="text-white bg-black text-lg p-4 rounded-lg cursor-pointer hover:bg-gray-800">
+                    Click the second test button
+                </button>
+                <button className="text-white bg-black text-lg p-4 rounded-lg cursor-pointer hover:bg-gray-800">
+                    Click the third test button
+                </button>
+                <button className="text-white bg-black text-lg p-4 rounded-lg cursor-pointer hover:bg-gray-800">
+                    Click the fourth test button
+                </button>
+            </div>
+        ),
+    },
+];
+
+export default function App() {
+    return (
+        <div className="w-1/2">
+            <TabPanel tabs={tabcontent}></TabPanel>
+        </div>
+    );
 }
-
-export default App
